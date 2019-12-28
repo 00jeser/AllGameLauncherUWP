@@ -39,5 +39,10 @@ namespace AllGameLauncherUWP
             menu.IsPaneOpen = false;
             Opener.Visibility = Visibility.Visible;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            contentPage.Content = new SettingPage();
+        }
     }
 }

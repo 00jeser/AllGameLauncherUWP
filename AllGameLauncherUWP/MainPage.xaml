@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Background>
-        <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="#FF646464" TintOpacity="0.5" TintLuminosityOpacity="0.5" FallbackColor="#FFA6A6A6" AlwaysUseFallback="False" Opacity="0.7"/>
+        <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="#FF4F4F4F" TintOpacity="0.5" TintLuminosityOpacity="0.5" FallbackColor="#FF939393" AlwaysUseFallback="False" Opacity="0.7"/>
     </Page.Background>
 
     <Grid>
@@ -20,14 +20,24 @@
                             TintColor="Black"
                             TintOpacity="0.2"
                             TintLuminosityOpacity="0.5"
-                            FallbackColor="#FFA6A6A6" AlwaysUseFallback="False" Opacity="0.7"/>
+                            FallbackColor="#FF686767" AlwaysUseFallback="False" Opacity="0.7"/>
                     </Grid.Background>
+                    <ListView Margin="0,0,0,50"/>
+                    <Button VerticalAlignment="Bottom" Height="50" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Click="Button_Click">
+                        <Button.Content>
+                            <Grid Margin="-10,-12,-310,-15">
+                                <Image HorizontalAlignment="Left" Width="48" Height="48" Margin="0
+                                       " Source="/Assets/settings.png"/>
+                                <TextBlock Text="Насторйки" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
                 </Grid>
             </SplitView.Pane>
             <Grid>
-                <Page Margin="30,0,0,0"/>
+                <Page x:Name="contentPage" Margin="30,0,0,0"/>
             </Grid>
         </SplitView>
-        <Grid x:Name="Opener" Width="45" HorizontalAlignment="Left" Background="#00FFFFFF" PointerEntered="Opener_PointerEntered" />
+        <Grid x:Name="Opener" Width="24" HorizontalAlignment="Left" Background="#00FFFFFF" PointerEntered="Opener_PointerEntered" />
     </Grid>
 </Page>
