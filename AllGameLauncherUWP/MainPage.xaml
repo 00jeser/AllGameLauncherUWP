@@ -5,10 +5,29 @@
     xmlns:local="using:AllGameLauncherUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
+    <Page.Background>
+        <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="#FF646464" TintOpacity="0.5" TintLuminosityOpacity="0.5" FallbackColor="#FFA6A6A6" AlwaysUseFallback="False" Opacity="0.7"/>
+    </Page.Background>
 
     <Grid>
-
+        <SplitView x:Name="menu" DisplayMode="CompactInline">
+            <SplitView.Pane>
+                <Grid PointerExited="Grid_PointerExited">
+                    <Grid.Background>
+                        <AcrylicBrush
+                            BackgroundSource="HostBackdrop"
+                            TintColor="Black"
+                            TintOpacity="0.2"
+                            TintLuminosityOpacity="0.5"
+                            FallbackColor="#FFA6A6A6" AlwaysUseFallback="False" Opacity="0.7"/>
+                    </Grid.Background>
+                </Grid>
+            </SplitView.Pane>
+            <Grid>
+                <Page Margin="30,0,0,0"/>
+            </Grid>
+        </SplitView>
+        <Grid x:Name="Opener" Width="45" HorizontalAlignment="Left" Background="#00FFFFFF" PointerEntered="Opener_PointerEntered" />
     </Grid>
 </Page>

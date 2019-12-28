@@ -26,5 +26,18 @@ namespace AllGameLauncherUWP
         {
             this.InitializeComponent();
         }
+
+
+        private void Opener_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            menu.IsPaneOpen = true;
+            Opener.Visibility = Visibility.Collapsed;
+        }
+
+        private void Grid_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            menu.IsPaneOpen = false;
+            Opener.Visibility = Visibility.Visible;
+        }
     }
 }
