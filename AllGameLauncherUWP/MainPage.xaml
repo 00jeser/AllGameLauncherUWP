@@ -22,7 +22,7 @@
                             TintLuminosityOpacity="0.5"
                             FallbackColor="#FF686767" AlwaysUseFallback="False" Opacity="0.7"/>
                     </Grid.Background>
-                    <ListView Margin="0,0,0,50"/>
+                    <ListView x:Name="Games" Margin="0,0,0,50" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Width="320" Padding="0,0,0,0" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <Button VerticalAlignment="Bottom" Height="50" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Click="Button_Click">
                         <Button.Content>
                             <Grid Margin="-10,-12,-310,-15">
@@ -36,6 +36,7 @@
             </SplitView.Pane>
             <Grid>
                 <Page x:Name="contentPage" Margin="30,0,0,0"/>
+                <Image x:Name="img" HorizontalAlignment="Left" Height="710" Margin="836,0,0,0" VerticalAlignment="Top" Width="396" Source="C:\Users\00jes\OneDrive\Изображения\Cora3.png" AllowDrop="True" AutomationProperties.AccessibilityView="Control" ManipulationMode="All" FocusVisualPrimaryBrush="{x:Null}"/>
             </Grid>
         </SplitView>
         <Grid x:Name="Opener" Width="24" HorizontalAlignment="Left" Background="#00FFFFFF" PointerEntered="Opener_PointerEntered" />

@@ -1,32 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x419
 
 namespace AllGameLauncherUWP
 {
-    /// <summary>
-    /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
         {
+            var r = new Random();
             this.InitializeComponent();
+            for (int i = 0; i <= 20; i++)
+            {
+                var b = new GameButton(i + "")
+                {
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    Margin = new Thickness(-12, 0, 0, 0),
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    Width = 301,
+                    Height = 50
+                };
+                b.Click += LoadGamePage;
+                Games.Items.Add(b);
+            }
         }
 
+        private void LoadGamePage(object sender, RoutedEventArgs e)
+        {
+            contentPage.Content = new GamePage((sender as GameButton).GameName);
+        }
 
         private void Opener_PointerEntered(object sender, PointerRoutedEventArgs e)
         {

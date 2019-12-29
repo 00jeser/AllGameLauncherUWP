@@ -4,7 +4,12 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
+  xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+  xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"
+  xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
+  IgnorableNamespaces="uap mp iot uap3 uap4 uap6 uap2">
 
   <Identity
     Name="9cfbe981-2e4e-4ce1-ad16-3b904fd9514c"
@@ -58,5 +63,8 @@
   <Capabilities>
     <Capability Name="internetClient" />
     <uap:Capability Name="picturesLibrary"/>
+    <uap:Capability Name="sharedUserCertificates"/>
+    <uap:Capability Name="removableStorage"/>
+    <DeviceCapability Name="pointOfService"/>
   </Capabilities>
 </Package>
