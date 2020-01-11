@@ -12,8 +12,11 @@
 
     <Grid>
         <SplitView x:Name="menu" DisplayMode="CompactInline">
+            <SplitView.Background>
+                <ImageBrush Opacity="0.5"/>
+            </SplitView.Background>
             <SplitView.Pane>
-                <Grid PointerExited="Grid_PointerExited">
+                <Grid PointerExited="Grid_PointerExited" Loaded="Grid_Loaded">
                     <Grid.Background>
                         <AcrylicBrush
                             BackgroundSource="HostBackdrop"
@@ -35,10 +38,9 @@
                 </Grid>
             </SplitView.Pane>
             <Grid>
-                <Page x:Name="contentPage" Margin="30,0,0,0"/>
-                <Image x:Name="img" HorizontalAlignment="Left" Height="710" Margin="836,0,0,0" VerticalAlignment="Top" Width="396" Source="C:\Users\00jes\OneDrive\Изображения\Cora3.png" AllowDrop="True" AutomationProperties.AccessibilityView="Control" ManipulationMode="All" FocusVisualPrimaryBrush="{x:Null}"/>
+                <Page x:Name="contentPage"/>
             </Grid>
         </SplitView>
-        <Grid x:Name="Opener" Width="24" HorizontalAlignment="Left" Background="#00FFFFFF" PointerEntered="Opener_PointerEntered" />
+        <Grid x:Name="Opener" Width="30" HorizontalAlignment="Left" Background="#00FFFFFF" PointerEntered="Opener_PointerEntered" />
     </Grid>
 </Page>

@@ -9,7 +9,7 @@
 
     <Grid>
         <TextBlock x:Name="GameNameLable" HorizontalAlignment="Left" Margin="10,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" FontFamily="Calibri"/>
-        <Button VerticalAlignment="Top" Content="Запустить" Margin="10,59,0,0" >
+        <Button VerticalAlignment="Top" Content="Запустить" Margin="10,59,0,0" Click="Button_Click" >
             <Button.Background>
                 <AcrylicBrush TintColor="#CC6F746E"/>
             </Button.Background>
