@@ -15,7 +15,7 @@
 
   <Identity
     Name="9cfbe981-2e4e-4ce1-ad16-3b904fd9514c"
-    Publisher="CN=00jeser"
+    Publisher="CN=00jes"
     Version="0.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="9cfbe981-2e4e-4ce1-ad16-3b904fd9514c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>

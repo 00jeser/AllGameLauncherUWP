@@ -8,6 +8,12 @@
     mc:Ignorable="d">
 
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="Transparent" Offset="0.28"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <TextBlock x:Name="GameNameLable" HorizontalAlignment="Left" Margin="10,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" FontFamily="Calibri"/>
         <Button VerticalAlignment="Top" Content="Запустить" Margin="10,59,0,0" Click="Button_Click" >
             <Button.Background>

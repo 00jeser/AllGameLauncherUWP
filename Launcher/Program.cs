@@ -15,16 +15,8 @@ namespace Launcher
             }
             try
             {
-                if (args.Length != 0)
-                {
-                    string executable = args[0];
-                    /*uncomment the below three lines if the exe file is in the Assets  
-                     folder of the project and not installed with the system*/
-                    /*string path=Assembly.GetExecutingAssembly().CodeBase;
-                    string directory=Path.GetDirectoryName(path);
-                    process.Start(directory+"\\"+executable);*/
-                    Process.Start(executable);
-                }
+                string executable = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + @"\AllGameLauncher\start.txt");
+                Process.Start(executable);
             }
             catch (Exception e)
             {

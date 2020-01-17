@@ -11,6 +11,7 @@
     </Page.Background>
 
     <Grid>
+        <Grid x:Name="fon"/>
         <SplitView x:Name="menu" DisplayMode="CompactInline">
             <SplitView.Background>
                 <ImageBrush Opacity="0.5"/>

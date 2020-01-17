@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml.Navigation;
 using Windows.ApplicationModel;
 using Windows.Storage;
@@ -36,6 +37,24 @@ namespace AllGameLauncherUWP
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            var tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150Text01);
+            var tileAttributes = tileXml.GetElementsByTagName("text");
+            tileAttributes[0].AppendChild(tileXml.CreateTextNode("AllGameLauncher\n"));
+            tileAttributes[0].AppendChild(tileXml.CreateTextNode(ThisGame.Name));
+            var tileNotification = new TileNotification(tileXml);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);
+
+            tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare310x310Text01);
+            tileAttributes = tileXml.GetElementsByTagName("text");
+            tileAttributes[0].AppendChild(tileXml.CreateTextNode("AllGameLauncher\n"));
+            tileAttributes[0].AppendChild(tileXml.CreateTextNode(ThisGame.Name));
+            tileNotification = new TileNotification(tileXml);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);
+
+
+            StorageFolder storageFolder = await StorageFolder.GetFolderFromPathAsync(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + @"\AllGameLauncher\");
+            StorageFile sampleFile = await storageFolder.GetFileAsync("start.txt");
+            await FileIO.WriteTextAsync(sampleFile, ThisGame.Path);
             await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Launcher");
         }
     }

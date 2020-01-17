@@ -11,8 +11,16 @@
         <ListView>
             <ListViewItem HorizontalContentAlignment="Stretch">
                 <Grid MinWidth="628">
-                    <ColorPicker HorizontalAlignment="Left" Width="307" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FlowDirection="LeftToRight" UseLayoutRounding="True" RequestedTheme="Default"/>
-                    <TextBlock Text="123" HorizontalAlignment="Right" Foreground="Black" FontSize="50" VerticalAlignment="Center"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="865*"/>
+                        <ColumnDefinition Width="391*" MinWidth="370"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="60" SelectionChanged="ComboBox_SelectionChanged" FontSize="25" Loaded="ComboBox_Loaded">
+                        <ComboBoxItem Content="Всегда видна" FontSize="25" Tag="1"/>
+                        <ComboBoxItem Content="Всегда скрыта" FontSize="25"  Tag="2"/>
+                        <ComboBoxItem Content="Динамично" FontSize="25" Tag="0"/>
+                    </ComboBox>
+                    <TextBlock Text="Боковая панель" HorizontalAlignment="Left" Foreground="Black" FontSize="50" VerticalAlignment="Center" Grid.Column="1"  Margin="10,0,0,0" Height="67" Width="364"/>
                 </Grid>
             </ListViewItem>
         </ListView>
