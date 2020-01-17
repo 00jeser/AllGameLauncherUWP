@@ -48,7 +48,6 @@ namespace AllGameLauncherUWP
         private async void LoadGamePage(object sender, RoutedEventArgs e)
         {
             contentPage.Content = new GamePage((sender as GameButton).ThisGame);
-            fon.Background = null;
             try
             {
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + @"\AllGameLauncher\background\" + (sender as GameButton).ThisGame.Name + ".img";
@@ -68,7 +67,10 @@ namespace AllGameLauncherUWP
                     bitmapImage.AutoPlay = true;
                 }
             }
-            catch { }
+            catch
+            {
+                fon.Background = null;
+            }
         }
 
         private void Opener_PointerEntered(object sender, PointerRoutedEventArgs e)
@@ -94,6 +96,7 @@ namespace AllGameLauncherUWP
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             contentPage.Content = new SettingPage();
+            fon.Background = null;
         }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
