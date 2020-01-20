@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="#00000000">
     <Grid>
-        <ListView>
+        <ListView SelectionChanged="ListView_SelectionChanged">
             <ListViewItem HorizontalContentAlignment="Stretch">
                 <Grid MinWidth="628">
                     <Grid.ColumnDefinitions>
@@ -22,6 +22,8 @@
                     </ComboBox>
                     <TextBlock Text="Боковая панель" HorizontalAlignment="Left" Foreground="Black" FontSize="50" VerticalAlignment="Center" Grid.Column="1"  Margin="10,0,0,0" Height="67" Width="364"/>
                 </Grid>
+            </ListViewItem>
+            <ListViewItem HorizontalContentAlignment="Stretch">
             </ListViewItem>
         </ListView>
     </Grid>

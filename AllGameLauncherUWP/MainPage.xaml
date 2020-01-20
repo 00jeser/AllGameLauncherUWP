@@ -20,19 +20,27 @@
                 <Grid PointerExited="Grid_PointerExited" Loaded="Grid_Loaded">
                     <Grid.Background>
                         <AcrylicBrush
-                            BackgroundSource="HostBackdrop"
+                            BackgroundSource="Backdrop"
                             TintColor="Black"
                             TintOpacity="0.2"
                             TintLuminosityOpacity="0.5"
                             FallbackColor="#FF686767" AlwaysUseFallback="False" Opacity="0.7"/>
                     </Grid.Background>
-                    <ListView x:Name="Games" Margin="0,0,0,50" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Width="320" Padding="0,0,0,0" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Button VerticalAlignment="Bottom" Height="50" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Click="Button_Click">
+                    <ListView x:Name="Games" Margin="0,0,0,100" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Width="320" Padding="0,0,0,0" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top" ShowsScrollingPlaceholders="True"/>
+                    <Button VerticalAlignment="Bottom" Height="50" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Click="OpenSettingsPage">
                         <Button.Content>
                             <Grid Margin="-10,-12,-310,-15">
                                 <Image HorizontalAlignment="Left" Width="48" Height="48" Margin="0
                                        " Source="/Assets/settings.png"/>
                                 <TextBlock Text="Насторйки" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                    <Button VerticalAlignment="Bottom" Height="50" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Click="OpenAddPage" Margin="0,0,0,50">
+                        <Button.Content>
+                            <Grid Margin="-10,-12,-310,-15">
+                                <TextBlock Text="+" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="50" Height="79" Width="48" TextAlignment="Center"/>
+                                <TextBlock Text="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Grid>
                         </Button.Content>
                     </Button>

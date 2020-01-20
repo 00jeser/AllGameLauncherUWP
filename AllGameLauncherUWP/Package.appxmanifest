@@ -11,7 +11,7 @@
   xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
   xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"
   xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
-  IgnorableNamespaces="uap mp iot uap3 uap4 uap6 uap2">
+  IgnorableNamespaces="uap mp iot uap3 uap4 uap6 uap2 rescap">
 
   <Identity
     Name="9cfbe981-2e4e-4ce1-ad16-3b904fd9514c"
@@ -74,6 +74,7 @@
 
   <Capabilities>
     <Capability Name="internetClient" />
+    <rescap:Capability Name="broadFileSystemAccess"/>
     <rescap:Capability
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   Name="runFullTrust" />

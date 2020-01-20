@@ -56,5 +56,10 @@ namespace AllGameLauncherUWP
             }
 
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            (sender as ListView).SelectedIndex = -1;
+        }
     }
 }

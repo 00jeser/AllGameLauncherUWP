@@ -93,42 +93,60 @@ namespace AllGameLauncherUWP
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OpenSettingsPage(object sender, RoutedEventArgs e)
         {
             contentPage.Content = new SettingPage();
             fon.Background = null;
         }
+        private void OpenAddPage(object sender, RoutedEventArgs e)
+        {
+            contentPage.Content = new AddPage(fon);
+        }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
-            StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + @"\AllGameLauncher\games\");
+                StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + @"\AllGameLauncher\games\");
+
+                IReadOnlyList<StorageFile> fileList = await folder.GetFilesAsync();
+                List<Game> games = new List<Game>();
+
+                foreach (StorageFile file in fileList)
+                {
+                    string text = await FileIO.ReadTextAsync(file);
+                    games.Add(JsonConvert.DeserializeObject<Game>(text));
+                }
+
+                foreach (Game g in games)
+                {
+                    var b = new GameButton(g)
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Stretch,
+                        Margin = new Thickness(-12, 0, 0, 0),
+                        VerticalAlignment = VerticalAlignment.Stretch,
+                        Width = 301,
+                        Height = 50
+                    };
+                    b.Click += LoadGamePage;
+                    Games.Items.Add(b);
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
+                StorageFolder folder1 = await folder.CreateFolderAsync("AllGameLauncher", CreationCollisionOption.ReplaceExisting);
+                await folder1.CreateFolderAsync("background", CreationCollisionOption.ReplaceExisting);
+                await folder1.CreateFolderAsync("games", CreationCollisionOption.ReplaceExisting);
+                await folder1.CreateFolderAsync("icon", CreationCollisionOption.ReplaceExisting);
+                await folder1.CreateFolderAsync("lnks", CreationCollisionOption.ReplaceExisting);
+                await folder1.CreateFileAsync("start.txt", CreationCollisionOption.ReplaceExisting);
+            }
 
             //Windows.Storage.StorageFile sampleFile = await folder.CreateFileAsync("sample.txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
             //await Windows.Storage.FileIO.WriteTextAsync(sampleFile, JsonConvert.SerializeObject(new Game { Name = "123", Path= @"G:\Games\Dead Space\Dead Space.exe", Genre="123", Add=DateTime.Now, Ocen="100" }));
 
-            IReadOnlyList<StorageFile> fileList = await folder.GetFilesAsync();
-            List<Game> games = new List<Game>();
-
-            foreach (StorageFile file in fileList)
-            {
-                string text = await FileIO.ReadTextAsync(file);
-                games.Add(JsonConvert.DeserializeObject<Game>(text));
-            }
-
-            foreach (Game g in games)
-            {
-                var b = new GameButton(g)
-                {
-                    HorizontalAlignment = HorizontalAlignment.Stretch,
-                    Margin = new Thickness(-12, 0, 0, 0),
-                    VerticalAlignment = VerticalAlignment.Stretch,
-                    Width = 301,
-                    Height = 50
-                };
-                b.Click += LoadGamePage;
-                Games.Items.Add(b);
-            }
         }
 
     }
